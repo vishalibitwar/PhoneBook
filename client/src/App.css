@@ -1,0 +1,25 @@
+.navbar_active{
+   border-bottom: 3px solid white  ;
+   color: white;
+
+}
+::-webkit-scrollbar {
+   width: 0px;
+   background: transparent; /* make scrollbar transparent */
+}
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
+}
+
+/*  Transition animation */
