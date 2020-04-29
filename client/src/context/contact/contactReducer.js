@@ -14,7 +14,6 @@ export default (state, action) =>{
          contacts : [action.payload, ...state.contacts],
          loading : false
        };
-      break;
     case DELETE_CONTACT:
        return {
          ...state,
@@ -34,20 +33,17 @@ export default (state, action) =>{
          ...state,
          current : action.payload
        };
-      break;
     case CLEAR_CURRENT:
        return {
          ...state,
          current : null
        };
-      break;
     case UPDATE_CONTACT:
        return {
          ...state,
          contacts : state.contacts.map(contact => contact._id === action.payload._id ? action.payload : contact),
          loading : false
        };
-      break;
     case FILTER_CONTACTS:
        return {
          ...state,
@@ -56,7 +52,6 @@ export default (state, action) =>{
           return contact.name.match(regex) || contact.email.match(regex);
         })
        };
-      break;
       case CLEAR_FILTER:
         return {
           ...state,

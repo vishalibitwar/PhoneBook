@@ -10,11 +10,11 @@ const Home = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <div className="row mt-5 justify-content-between align-items-center ">
-      <div className="col-sm-5">
+    <div className="row mt-5 justify-content-between">
+      <div className="col-sm-5 align-self-center" >
         <ContactForm />
       </div>
-      <div className="col-sm-5 p-2 mt-3 mt-sm-0 " style={{ height: '600px', overflowY: 'auto' }}>
+      <div className="col-sm-5 p-2 mt-3 mt-sm-0 " style={{ maxHeight: '600px', overflowY: 'auto' }}>
         <ContactFilter/>
         <Contacts />
       </div>

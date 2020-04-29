@@ -8,7 +8,7 @@ const ContactFilter = () => {
     if (filtered === null) {
       text.current.value = '';
     }
-  }, []);
+  }, [filtered]);
   const onChange = e => {
     if (text.current.value !== '') {
       filterContacts(e.target.value);
@@ -19,7 +19,7 @@ const ContactFilter = () => {
   return (
     <form>
       <div className="form-group">
-      <input ref={text} placeholder="Filter Contacts..." type="text" onChange={onChange}  className="form-control"/>
+      <input ref={text} placeholder="Search Contacts..." type="text" onChange={onChange}  className="form-control"/>
       </div>
     </form>
   )

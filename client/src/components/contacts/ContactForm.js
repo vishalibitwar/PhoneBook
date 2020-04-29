@@ -1,9 +1,12 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ContactContext from '../../context/contact/contactContext';
+import AlertContext from '../../context/alert/alertContext'
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
+  const alertContext = useContext(AlertContext);
   const { addContact, current, clearCurrent, updateContact } = contactContext;
+  const { setAlert } = alertContext;
   useEffect(() => {
     if (current !== null) {
       setContact(current);
@@ -29,13 +32,23 @@ const ContactForm = () => {
   }
   const onSubmit = (e) => {
     e.preventDefault();
-    if (current === null) {
+
+    if (name.trim() === '' || email.trim() === '' || phone.trim() === '') {
+      setAlert(' Please, fill all the fields 😐', 'danger');
+    } else if (name.trim().length < 2) {
+      setAlert(' Name must contain alleast 2 character 😐', 'danger');
+    } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+      setAlert(' Enter Valid Email address 😕 !', 'danger');
+    } else if (!(/^[7-9][0-9]{9}$/).test(phone)) {
+      setAlert(' Enter Valid Mobile No. 😕 !', 'danger');
+    } else if (current === null) {
       addContact(contact);
+      clearAll();
     } else {
       updateContact(contact);
       clearCurrent();
     }
-    clearAll();
+
   }
   const clearAll = () => {
     clearCurrent();
@@ -50,11 +63,11 @@ const ContactForm = () => {
         </div>
         <div className="form-group">
           <label className="lead" htmlFor="email" >Email</label>
-          <input type="email" name="email" id="email" className="form-control" spellCheck="false" autoComplete="off" value={email} onChange={onChange} required />
+          <input type="text" name="email" id="email" className="form-control" spellCheck="false" autoComplete="off" value={email} onChange={onChange} />
         </div>
         <div className="form-group">
-          <label className="lead" htmlFor="Phone">Phone</label>
-          <input type="text" name="phone" id="Phone" className="form-control" spellCheck="false" autoComplete="off" value={phone} onChange={onChange} />
+          <label className="lead" htmlFor="Phone">Mobile No.</label>
+          <input type="number" name="phone" id="Phone" className="form-control" spellCheck="false" autoComplete="off" value={phone} onChange={onChange} />
         </div>
         <div className="form-group lead">
           <input type="radio" name="type" value="personal" onChange={onChange} checked={type === 'personal'} /> Personal {' '}

@@ -1,25 +1,77 @@
-.navbar_active{
-   border-bottom: 3px solid white  ;
-   color: white;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Muli&display=swap');
 
+body {
+  font-family: 'Muli', sans-serif;
 }
+
+.brand {
+  font-family: 'Baloo Bhaina 2', cursive;
+}
+
+.navbar_active {
+  border-bottom: 3px solid white;
+  color: white;
+}
+* {
+  box-sizing: border-box;
+}
+
+hr{
+   color: black;
+}
+
+.usericon {
+
+  display: inline-block;
+  align-self: center;
+  border-radius: 50%;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+a {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+footer a {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #17a2b8;
+  font-weight: 700;
+  padding: 0.7rem;
+  margin: 1rem 0.3rem;
+  border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 ::-webkit-scrollbar {
-   width: 0px;
-   background: transparent; /* make scrollbar transparent */
+  width: 0px;
+  background: transparent;
+  /* make scrollbar transparent */
 }
+
 .item-enter {
   opacity: 0;
 }
+
 .item-enter-active {
   opacity: 1;
   transition: opacity 1000ms ease-in;
 }
+
 .item-exit {
   opacity: 1;
 }
+
 .item-exit-active {
   opacity: 0;
   transition: opacity 1000ms ease-in;
 }
-
-/*  Transition animation */

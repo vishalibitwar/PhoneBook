@@ -11,7 +11,7 @@ const ContactState = props => {
     filtered: null,
     error: null
   };
-  
+
   const [state, dispatch] = useReducer(contactReducer, initialState);
   //  Get Contacts
   const getContacts = async contact => {
@@ -21,7 +21,7 @@ const ContactState = props => {
     } catch (err) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.res.msg
+        payload: err.response.msg
       });
     }
   }
